@@ -3,20 +3,45 @@ import java.util.List;
 
 public class Order {
 
-    List<Dish> orderDishes = new ArrayList<>();
+    List<Dish> chosenDishes = new ArrayList<>();
     OrderStatus status;
-    int clientId;
+    Table table;
+    Waiter waiter;
+    double totalPrice;
 
     public enum OrderStatus {
         NEW,
         PROCESSING,
-        DONE
+        DONE,
+        SERVED
     }
 
-    public Order (OrderStatus status, int clientId) {
-        this.status = status;
-        this.clientId = clientId;
+    public Order(Table table, Waiter waiter, List<Dish> chosenDishes, double totalPrice) {
+
+        this.table = table;
+        this.waiter = waiter;
+
+        // безопасно присваиваем список (копия)
+        if (chosenDishes != null) {
+            this.chosenDishes = new ArrayList<>(chosenDishes);
+        } else {
+            this.chosenDishes = new ArrayList<>();
+        }
+
+        // вычисляем итоговую цену и сохраняем в поле
+        this.totalPrice = calculateTotalPrice(this.chosenDishes);
+        this.status = OrderStatus.NEW;
     }
 
-    
+    double calculateTotalPrice(List<Dish> chosenDishes) {
+        double sum = 0.0;
+        if (chosenDishes == null) return sum;
+        for (Dish dish : chosenDishes) {
+            if (dish != null) {
+                sum += dish.price;
+            }
+        }
+        return sum;
+    }
+
 }

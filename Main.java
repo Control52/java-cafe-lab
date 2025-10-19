@@ -1,24 +1,36 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class Main {
     public static void main(String[] args) {
 
-        Client client1 = new Client(10000, Client.AgeType.ADULT, 1);
-
         Menu menu = new Menu();
 
-        List<Dish> choosenDishes = new ArrayList<>();
+        Table table = new Table();
+        table.number = 1;
 
-        choosenDishes.add(menu.getDishes().get(0));
+        Waiter waiter = new Waiter();
+        waiter.name = "Ivan";
 
-        Order order = client1.placeOrder(choosenDishes);
+        Client client = new Client();
+        client.sitAtTable(table);
 
-        System.out.println("Статус закаказа:" + order.status);
-        System.out.println("Клиент заказал:");
-        for (Dish dish : order.orderDishes) {
-            System.out.println("🍽️ " + dish.title);
+        Dish chosen = menu.getDishByName("Макароны c сосисками");
+        if (chosen != null) {
+            client.getChosenDishes().add(chosen);
         }
 
+        System.out.println("Client chosen dishes: " + client.getChosenDishes().size());
+        for (Dish d : client.getChosenDishes()) {
+            System.out.println(" - " + d.title + " : price=" + d.price);
+        }
+
+        Order order = waiter.takeOrder(table, client.getChosenDishes());
+        System.out.println("Order created. Status: " + order.status + ", total: " + order.totalPrice);
+
+
+        Chef chef = new Chef();
+        chef.name = "Petr";
+        chef.prepareOrder(order);
+
+
+        System.out.println("Final order status: " + order.status + ", total: " + order.totalPrice);
     }
 }
