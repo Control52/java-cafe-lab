@@ -1,30 +1,33 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Client {
     int money;
     AgeType type;
-    int id;
+    Table table;
+    List<Dish> chosenDishes = new ArrayList<>();
 
     enum AgeType {
         ADULT,
         CHILDREN
     }
 
-    public Client (int money, AgeType type, int id) {
-        this.money = money;
-        this.type = type;
-        this.id = id;
+
+    void sitAtTable(Table table) {
+        this.table = table;
+        if (this.table != null) {
+            this.table.setOccupied(true);
+        }
+    
     }
 
-    public Order placeOrder(List<Dish> chosenDishes) {
-
-        Order order = new Order(Order.OrderStatus.NEW, this.id);
-
-        order.orderDishes.addAll(chosenDishes);
-
-        return order;
+    List <Dish> getChosenDishes(){
+         return chosenDishes;
 
     }
+
+
+
 
 
 }
