@@ -4,11 +4,9 @@ public class Table {
     boolean isOccupied;
     Waiter waiter;
 
-
-
-    void assignWaiter(Waiter waiter){
+    void assignWaiter(Waiter waiter) {
         this.waiter = waiter;
-        
+
     }
 
     void setOccupied(boolean is_occupied) {

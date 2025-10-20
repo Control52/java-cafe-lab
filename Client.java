@@ -12,22 +12,17 @@ public class Client {
         CHILDREN
     }
 
-
     void sitAtTable(Table table) {
         this.table = table;
         if (this.table != null) {
             this.table.setOccupied(true);
         }
-    
-    }
-
-    List <Dish> getChosenDishes(){
-         return chosenDishes;
 
     }
 
+    List<Dish> getChosenDishes() {
+        return chosenDishes;
 
-
-
+    }
 
 }

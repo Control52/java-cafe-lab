@@ -1,4 +1,3 @@
-
 public class Chef {
 
     String name;
@@ -7,16 +6,16 @@ public class Chef {
 
         order.status = Order.OrderStatus.PROCESSING;
 
-        System.out.println("Chef " + name + " started preparing order for table "
-                + (order.table != null ? order.table.number : "unknown"));
+        System.out.println("Повар " + name + " начал готовить заказ для стола "
+                + (order.table != null ? order.table.number : "неизвестно"));
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(4000);
         } catch (InterruptedException ignored) {
         }
 
         order.status = Order.OrderStatus.DONE;
-        System.out.println("Chef " + name + " finished preparing order");
+        System.out.println("Повар " + name + " закончил готовить заказ");
 
     }
 

@@ -21,14 +21,13 @@ public class Order {
         this.table = table;
         this.waiter = waiter;
 
-        // безопасно присваиваем список (копия)
         if (chosenDishes != null) {
             this.chosenDishes = new ArrayList<>(chosenDishes);
         } else {
             this.chosenDishes = new ArrayList<>();
         }
 
-        // вычисляем итоговую цену и сохраняем в поле
+        
         this.totalPrice = calculateTotalPrice(this.chosenDishes);
         this.status = OrderStatus.NEW;
     }
