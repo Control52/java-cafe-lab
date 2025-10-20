@@ -18,7 +18,7 @@ public class Menu {
     void removeDish(String title) {
         for (int i = 0; i < dishes.size(); i++) {
             Dish d = dishes.get(i);
-             if (d != null && title.equalsIgnoreCase(d.title)) {
+            if (d != null && title.equalsIgnoreCase(d.title)) {
                 dishes.remove(i);
             }
         }

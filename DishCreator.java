@@ -12,12 +12,12 @@ public class DishCreator {
     }
 
     public static Dish createChickenInOwner() {
-        return new Dish("Курица в духовке", "Авторское блюдо от Анатолия Шаповалова", 
-                                    777, 2010, Dish.DishType.MAIN, 1000);
+        return new Dish("Курица в духовке", "Авторское блюдо от Анатолия Шаповалова",
+                777, 2010, Dish.DishType.MAIN, 1000);
     }
 
-     public static Dish createChicken() {
-        return new Dish("Курица", "Авторское блюдо от Анатолия Шаповалова", 
-                                    777, 2010, Dish.DishType.MAIN, 1000);
+    public static Dish createChicken() {
+        return new Dish("Курица", "Авторское блюдо от Анатолия Шаповалова",
+                777, 2010, Dish.DishType.MAIN, 1000);
     }
 }

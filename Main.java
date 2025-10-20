@@ -7,7 +7,7 @@ class Main {
         table.number = 1;
 
         Waiter waiter = new Waiter();
-        waiter.name = "Ivan";
+        waiter.name = "Никита";
 
         Client client = new Client();
         client.sitAtTable(table);
@@ -17,20 +17,19 @@ class Main {
             client.getChosenDishes().add(chosen);
         }
 
-        System.out.println("Client chosen dishes: " + client.getChosenDishes().size());
+        System.out.println("Количество выбранных блюд: " + client.getChosenDishes().size());
         for (Dish d : client.getChosenDishes()) {
-            System.out.println(" - " + d.title + " : price=" + d.price);
+            System.out.println(" - " + d.title + " : цена=" + d.price);
         }
 
         Order order = waiter.takeOrder(table, client.getChosenDishes());
-        System.out.println("Order created. Status: " + order.status + ", total: " + order.totalPrice);
-
+        System.out.println("Заказ создан. Статус: " + order.status + ", итоговая сумма: " + order.totalPrice);
 
         Chef chef = new Chef();
-        chef.name = "Petr";
+        chef.name = "Алексей";
         chef.prepareOrder(order);
 
-
-        System.out.println("Final order status: " + order.status + ", total: " + order.totalPrice);
+        System.out.println("Итоговый статус заказа: " + order.status + ", итоговая сумма: " + order.totalPrice);
     }
+
 }

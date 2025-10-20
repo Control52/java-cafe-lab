@@ -11,7 +11,7 @@ public class Dish {
     DishType type;
     int caloricContent;
 
-    // Типы блюд - добавьте public
+    // Типы блюд
     public enum DishType {
         DRINK,
         SOUP,

@@ -11,5 +11,5 @@ public class Waiter {
         Order newOrder = new Order(table, this, chosenDishes, 0.0);
         return newOrder;
     }
-    
+
 }
