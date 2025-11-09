@@ -1,3 +1,4 @@
+package Cafe;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -32,7 +33,7 @@ public class Menu {
      * если название совпадает, возвращает объект типа Dish
      * иначе null
      */
-    Dish getDishByName(String title) {
+    public Dish getDishByName(String title) {
         for (Dish dish : dishes) {
             if (dish.title.equals(title)) {
                 return dish;

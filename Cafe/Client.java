@@ -1,3 +1,5 @@
+package Cafe;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public class Client {
         CHILDREN
     }
 
-    void sitAtTable(Table table) {
+    public void sitAtTable(Table table) {
         this.table = table;
         if (this.table != null) {
             this.table.setOccupied(true);
@@ -20,7 +22,7 @@ public class Client {
 
     }
 
-    List<Dish> getChosenDishes() {
+    public List<Dish> getChosenDishes() {
         return chosenDishes;
 
     }

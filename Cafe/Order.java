@@ -1,5 +1,8 @@
+package Cafe;
 import java.util.ArrayList;
 import java.util.List;
+
+import Employees.Waiter;
 
 public class Order {
 
@@ -43,4 +46,35 @@ public class Order {
         return sum;
     }
 
+     public List<Dish> getChosenDishes() {
+        return new ArrayList<>(chosenDishes);
+    }
+    
+    public OrderStatus getStatus() {
+        return status;
+    }
+    
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
+    
+    public Table getTable() {
+        return table;
+    }
+    
+    public void setTable(Table table) {
+        this.table = table;
+    }
+    
+    public Waiter getWaiter() {
+        return waiter;
+    }
+    
+    public void setWaiter(Waiter waiter) {
+        this.waiter = waiter;
+    }
+    
+    public double getTotalPrice() {
+        return totalPrice;
+    }
 }
