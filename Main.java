@@ -1,13 +1,20 @@
+import Cafe.Client;
+import Cafe.Dish;
+import Cafe.Menu;
+import Cafe.Order;
+import Cafe.Table;
+import Employees.Chef;
+import Employees.Waiter;
+
 class Main {
     public static void main(String[] args) {
 
         Menu menu = new Menu();
 
         Table table = new Table();
-        table.number = 1;
+        table.setNumber(1);
 
-        Waiter waiter = new Waiter();
-        waiter.name = "Никита";
+        Waiter waiter = new Waiter("Никита", 15.0, 40);
 
         Client client = new Client();
         client.sitAtTable(table);
@@ -17,19 +24,28 @@ class Main {
             client.getChosenDishes().add(chosen);
         }
 
+
         System.out.println("Количество выбранных блюд: " + client.getChosenDishes().size());
         for (Dish d : client.getChosenDishes()) {
-            System.out.println(" - " + d.title + " : цена=" + d.price);
+            System.out.println(" - " + d.getTitle() + " : цена=" + d.getPrice());
         }
 
-        Order order = waiter.takeOrder(table, client.getChosenDishes());
-        System.out.println("Заказ создан. Статус: " + order.status + ", итоговая сумма: " + order.totalPrice);
 
-        Chef chef = new Chef();
-        chef.name = "Алексей";
+        Order order = waiter.takeOrder(table, client.getChosenDishes());
+        System.out.println("Заказ создан. Статус: " + order.getStatus() + ", итоговая сумма: " + order.getTotalPrice());
+
+        Chef chef = new Chef("Алексей", 20.0, 40, 5);
         chef.prepareOrder(order);
 
-        System.out.println("Итоговый статус заказа: " + order.status + ", итоговая сумма: " + order.totalPrice);
+        System.out.println("Итоговый статус заказа: " + order.getStatus() + ", итоговая сумма: " + order.getTotalPrice());
+
+        waiter.completeOrder(order);
+        System.out.println("Зарплата официанта: " + waiter.calculateSalary());
+        System.out.println("Зарплата повара: " + chef.calculateSalary());
+
+        System.out.println("Цена блюда со скидкой 10%: " + chosen.getDiscountedPrice(0.1));
     }
+
+
 
 }
