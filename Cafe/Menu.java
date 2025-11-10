@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Menu {
 
-    List<Dish> dishes = new ArrayList<>();
+    private List<Dish> dishes = new ArrayList<>();
 
     public Menu() {
         dishes.add(DishCreator.createPastaWithSausages());
@@ -12,18 +12,12 @@ public class Menu {
         dishes.add(DishCreator.createChickenInOwner());
     }
 
-    void addDish(Dish dish) {
+    public void addDish(Dish dish) {
         dishes.add(dish);
     }
 
-    void removeDish(String title) {
-        for (int i = 0; i < dishes.size(); i++) {
-            Dish d = dishes.get(i);
-            if (d != null && title.equalsIgnoreCase(d.title)) {
-                dishes.remove(i);
-            }
-        }
-
+    public void removeDish(String title) {
+        dishes.removeIf(d -> d != null && title.equalsIgnoreCase(d.getTitle()));
     }
 
     /*
@@ -35,7 +29,7 @@ public class Menu {
      */
     public Dish getDishByName(String title) {
         for (Dish dish : dishes) {
-            if (dish.title.equals(title)) {
+            if (dish.getTitle().equals(title)) {
                 return dish;
             }
         }
@@ -46,9 +40,12 @@ public class Menu {
 
     void showMenu() {
         for (Dish dish : dishes) {
-            System.out.println(dish.title);
+            System.out.println(dish.getTitle());
         }
         System.out.println();
     }
 
+    public List<Dish> getDishes() {
+        return new ArrayList<>(dishes);
+    }
 }
