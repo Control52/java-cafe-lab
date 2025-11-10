@@ -12,7 +12,7 @@ class Main {
         Menu menu = new Menu();
 
         Table table = new Table();
-        table.setNumber(1);
+        table.setNumber(2);
 
         Waiter waiter = new Waiter("Никита", 15.0, 40);
 

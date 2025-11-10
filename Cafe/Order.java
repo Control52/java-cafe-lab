@@ -6,11 +6,11 @@ import Employees.Waiter;
 
 public class Order {
 
-    List<Dish> chosenDishes = new ArrayList<>();
-    OrderStatus status;
-    Table table;
-    Waiter waiter;
-    double totalPrice;
+    private List<Dish> chosenDishes = new ArrayList<>();
+    private OrderStatus status;
+    private Table table;
+    private Waiter waiter;
+    private double totalPrice;
 
     public enum OrderStatus {
         NEW,
@@ -40,7 +40,7 @@ public class Order {
         if (chosenDishes == null) return sum;
         for (Dish dish : chosenDishes) {
             if (dish != null) {
-                sum += dish.price;
+                sum += dish.getPrice();
             }
         }
         return sum;

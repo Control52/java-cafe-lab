@@ -8,7 +8,7 @@ import Cafe.Order;
 import Cafe.Table;
 
 public class Waiter extends Employee {
-    List<Order> comletedOrders = new ArrayList<>();
+    private List<Order> completedOrders = new ArrayList<>();
 
     public Waiter(String name, double baseSalary, int workingHours) {
         super(name, baseSalary, workingHours);
@@ -17,10 +17,10 @@ public class Waiter extends Employee {
     @Override
     public double calculateSalary() {
         double totalOrderValue = 0.0;
-        for(Order order : comletedOrders){
+        for(Order order : completedOrders){
             totalOrderValue += order.getTotalPrice();
         }
-        return (baseSalary * workingHours) + (0.05 * totalOrderValue);
+        return (getBaseSalary() * getWorkingHours()) + (0.05 * totalOrderValue);
     }
 
     public Order takeOrder(Table table, List<Dish> chosenDishes) {
@@ -31,12 +31,12 @@ public class Waiter extends Employee {
 
     public void completeOrder(Order order){
         if(order.getWaiter() == this){
-            comletedOrders.add(order);
+            completedOrders.add(order);
         }
     }
 
     public List<Order> getCompletedOrders(){
-        return comletedOrders;
+        return completedOrders;
     }
 
 }

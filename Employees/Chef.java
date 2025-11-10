@@ -14,23 +14,25 @@ public class Chef extends Employee {
 
     @Override
     public double calculateSalary(){
-        return (baseSalary * workingHours) + (overtimeHours * OVERTIME_RATE * baseSalary);
+        return (getBaseSalary() * getWorkingHours()) + (overtimeHours * OVERTIME_RATE * getBaseSalary());
     }
 
     public void prepareOrder(Order order) {
         order.setStatus(OrderStatus.PROCESSING);
 
-        System.out.println("Повар " + name + " начал готовить заказ для стола "
-            + (order.getTable() != null ? order.getTable() : "неизвестно"));
+        String tableInfo = "неизвестно";
+        if (order.getTable() != null) {
+            tableInfo = String.valueOf(order.getTable().getNumber());
+        }
+        System.out.println("Повар " + getName() + " начал готовить заказ для стола " + tableInfo);
 
-    try {
-    Thread.sleep(4000);
-    } catch (InterruptedException ignored) {
-    }
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException ignored) {
+        }
 
-    order.setStatus(OrderStatus.DONE);
-    System.out.println("Повар " + name + " закончил готовить заказ");
-
+        order.setStatus(OrderStatus.DONE);
+        System.out.println("Повар " + getName() + " закончил готовить заказ");
     }
 
     public int getOvertimeHours() {
