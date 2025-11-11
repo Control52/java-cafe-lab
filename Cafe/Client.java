@@ -1,15 +1,11 @@
 package Cafe;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Client {
    
     private int money;
     private AgeType type;
     private Table table;
-    private List<Dish> chosenDishes = new ArrayList<>();
-
+    
     public enum AgeType {
         ADULT,
         CHILDREN
@@ -52,11 +48,4 @@ public class Client {
         this.table = table;
     }
 
-    public List<Dish> getChosenDishes() {
-        return chosenDishes;
-    }
-
-    public void setChosenDishes(List<Dish> chosenDishes) {
-        this.chosenDishes = chosenDishes;
-    }
 }

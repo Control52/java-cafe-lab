@@ -2,15 +2,15 @@ package Cafe;
 import java.util.ArrayList;
 import java.util.List;
 
-import Employees.Waiter;
 
 public class Order {
 
     private List<Dish> chosenDishes = new ArrayList<>();
     private OrderStatus status;
     private Table table;
-    private Waiter waiter;
     private double totalPrice;
+    private Client client;
+ 
 
     public enum OrderStatus {
         NEW,
@@ -19,18 +19,11 @@ public class Order {
         SERVED
     }
 
-    public Order(Table table, Waiter waiter, List<Dish> chosenDishes) {
+    public Order(Table table, Client client) {
 
         this.table = table;
-        this.waiter = waiter;
-
-        if (chosenDishes != null) {
-            this.chosenDishes = new ArrayList<>(chosenDishes);
-        } else {
-            this.chosenDishes = new ArrayList<>();
-        }
-
-        
+        this.client = client;
+        this.chosenDishes = new ArrayList<>();
         this.totalPrice = calculateTotalPrice(this.chosenDishes);
         this.status = OrderStatus.NEW;
     }
@@ -61,6 +54,13 @@ public class Order {
         }
     }
 
+    public void addDish(Dish dish) {
+        if (dish != null) {
+            chosenDishes.add(dish);
+            totalPrice = calculateTotalPrice(chosenDishes);
+        }
+    }
+
      public List<Dish> getChosenDishes() {
         return new ArrayList<>(chosenDishes);
     }
@@ -81,15 +81,16 @@ public class Order {
         this.table = table;
     }
     
-    public Waiter getWaiter() {
-        return waiter;
+    public Client getClient() {
+        return client;
     }
     
-    public void setWaiter(Waiter waiter) {
-        this.waiter = waiter;
+    public void setClient(Client client) {
+        this.client = client;
     }
     
     public double getTotalPrice() {
         return totalPrice;
     }
+
 }

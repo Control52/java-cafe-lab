@@ -5,15 +5,15 @@ import java.util.List;
 
 public class Dish implements Discountable {
     // поля класса Dish
-        private String title;
-        private String description;
-        private double price;
-        private int weight;
-        private List<Product> products = new ArrayList<>();
-        private DishType type;
-        private int caloricContent;
+    private String title;
+    private String description;
+    private double price;
+    private int weight;
+    private List<Product> products = new ArrayList<>();
+    private DishType type;
+    private int caloricContent;
 
-        public static final double DEFAULT_DISCOUNT_RATE = 0.1;
+    public static final double DEFAULT_DISCOUNT_RATE = 0.1;
 
     // Типы блюд
     public enum DishType {
