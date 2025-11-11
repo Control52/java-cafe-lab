@@ -4,6 +4,7 @@ import Cafe.Dish;
 import Cafe.Menu;
 import Cafe.Order;
 import Cafe.Table;
+import Cafe.Client.AgeType;
 import Cafe.Product;
 import Employees.Chef;
 import Employees.Waiter;
@@ -20,7 +21,7 @@ class Main {
 
         Waiter waiter = new Waiter("Никита", 15.0, 40);
 
-        Client client = new Client();
+        Client client = new Client(1000, AgeType.ADULT);
         client.sitAtTable(table);
 
         Dish chosen = menu.getDishByName("Макароны c сосисками");
@@ -30,7 +31,7 @@ class Main {
 
         System.out.println("Количество выбранных блюд: " + client.getChosenDishes().size());
         for (Dish d : client.getChosenDishes()) {
-            System.out.println(" - " + d.getTitle() + " : цена=" + d.getPrice());
+            System.out.println(" - " + d.getTitle() + " : цена = " + d.getPrice());
             System.out.print("   Состав: ");
             for (Product p : d.getProducts()) {
                 System.out.print(p.getProductName() + " ");
@@ -39,12 +40,12 @@ class Main {
         }
 
         Order order = waiter.takeOrder(table, client.getChosenDishes());
-        System.out.println("Заказ создан. Статус: " + order.getStatus() + ", итоговая сумма: " + order.getTotalPrice());
+        System.out.println("Заказ создан. Статус: " + order.getStatusRu());
 
         Chef chef = new Chef("Алексей", 20.0, 40, 5);
         chef.prepareOrder(order);
 
-        System.out.println("Итоговый статус заказа: " + order.getStatus() + ", итоговая сумма: " + order.getTotalPrice());
+        System.out.println("Итоговый статус заказа: " + order.getStatusRu() + ", итоговая сумма: " + order.getTotalPrice());
 
         waiter.completeOrder(order);
         System.out.println("Зарплата официанта: " + waiter.calculateSalary());
