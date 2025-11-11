@@ -20,11 +20,7 @@ public class Chef extends Employee {
     public void prepareOrder(Order order) {
         order.setStatus(OrderStatus.PROCESSING);
 
-        String tableInfo = "неизвестно";
-        if (order.getTable() != null) {
-            tableInfo = String.valueOf(order.getTable().getNumber());
-        }
-        System.out.println("Повар " + getName() + " начал готовить заказ для стола " + tableInfo);
+        System.out.println("Повар " + getName() + " начал готовить заказ для стола " + (order.getTable() != null ? order.getTable().getNumber() : "неизвестно") );
 
         try {
             Thread.sleep(4000);

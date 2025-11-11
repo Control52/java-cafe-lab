@@ -3,9 +3,9 @@ package Employees;
 import java.util.ArrayList;
 import java.util.List;
 
-import Cafe.Dish;
 import Cafe.Order;
 import Cafe.Table;
+import Cafe.Client;
 
 public class Waiter extends Employee {
     private List<Order> completedOrders = new ArrayList<>();
@@ -23,14 +23,14 @@ public class Waiter extends Employee {
         return (getBaseSalary() * getWorkingHours()) + (0.05 * totalOrderValue);
     }
 
-    public Order takeOrder(Table table, List<Dish> chosenDishes) {
+    public Order takeOrder(Table table, Client client) {
         table.assignWaiter(this);
-        Order newOrder = new Order(table, this, chosenDishes);
+        Order newOrder = new Order(table, client);
         return newOrder;
     }
 
     public void completeOrder(Order order){
-        if(order.getWaiter() == this){
+        if(order.getTable().getWaiter() == this){
             completedOrders.add(order);
         }
     }

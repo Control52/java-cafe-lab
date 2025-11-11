@@ -23,13 +23,15 @@ class Main {
         Client client = new Client(1000, Client.AgeType.ADULT);
         client.sitAtTable(table);
 
+        Order order = waiter.takeOrder(table, client);
+
         Dish chosen = menu.getDishByName("Макароны c сосисками");
         if (chosen != null) {
-            client.getChosenDishes().add(chosen);
+            order.addDish(chosen);
         }
 
-        System.out.println("Количество выбранных блюд: " + client.getChosenDishes().size());
-        for (Dish d : client.getChosenDishes()) {
+        System.out.println("Количество выбранных блюд: " + order.getChosenDishes().size());
+        for (Dish d : order.getChosenDishes()) {
             System.out.println(" - " + d.getTitle() + " : цена = " + d.getPrice());
             System.out.print("   Состав: ");
             for (Product p : d.getProducts()) {
@@ -38,13 +40,13 @@ class Main {
             System.out.println();
         }
 
-        Order order = waiter.takeOrder(table, client.getChosenDishes());
         System.out.println("Заказ создан. Статус: " + order.getStatusRu());
 
         Chef chef = new Chef("Алексей", 20.0, 40, 5);
         chef.prepareOrder(order);
 
-        System.out.println("Итоговый статус заказа: " + order.getStatusRu() + ", итоговая сумма: " + order.getTotalPrice());
+        System.out.println(
+                "Итоговый статус заказа: " + order.getStatusRu() + ", итоговая сумма: " + order.getTotalPrice());
 
         waiter.completeOrder(order);
         System.out.println("Зарплата официанта: " + waiter.calculateSalary());
@@ -54,7 +56,5 @@ class Main {
 
         cafe.closeCafe();
     }
-
-
 
 }
