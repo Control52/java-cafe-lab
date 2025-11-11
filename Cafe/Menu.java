@@ -38,7 +38,7 @@ public class Menu {
 
     // метод для вывода меню
 
-    void showMenu() {
+    public void showMenu() {
         for (Dish dish : dishes) {
             System.out.println(dish.getTitle());
         }

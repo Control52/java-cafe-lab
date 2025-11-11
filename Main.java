@@ -1,13 +1,17 @@
+import Cafe.Cafe;
 import Cafe.Client;
 import Cafe.Dish;
 import Cafe.Menu;
 import Cafe.Order;
 import Cafe.Table;
+import Cafe.Product;
 import Employees.Chef;
 import Employees.Waiter;
 
 class Main {
     public static void main(String[] args) {
+        Cafe cafe = new Cafe();
+        cafe.openCafe();
 
         Menu menu = new Menu();
 
@@ -24,12 +28,15 @@ class Main {
             client.getChosenDishes().add(chosen);
         }
 
-
         System.out.println("Количество выбранных блюд: " + client.getChosenDishes().size());
         for (Dish d : client.getChosenDishes()) {
             System.out.println(" - " + d.getTitle() + " : цена=" + d.getPrice());
+            System.out.print("   Состав: ");
+            for (Product p : d.getProducts()) {
+                System.out.print(p.getProductName() + " ");
+            }
+            System.out.println();
         }
-
 
         Order order = waiter.takeOrder(table, client.getChosenDishes());
         System.out.println("Заказ создан. Статус: " + order.getStatus() + ", итоговая сумма: " + order.getTotalPrice());
@@ -44,6 +51,8 @@ class Main {
         System.out.println("Зарплата повара: " + chef.calculateSalary());
 
         System.out.println("Цена блюда со скидкой 10%: " + chosen.getDiscountedPrice(0.1));
+
+        cafe.closeCafe();
     }
 
 

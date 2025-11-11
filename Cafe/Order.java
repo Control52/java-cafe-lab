@@ -19,7 +19,7 @@ public class Order {
         SERVED
     }
 
-    public Order(Table table, Waiter waiter, List<Dish> chosenDishes, double totalPrice) {
+    public Order(Table table, Waiter waiter, List<Dish> chosenDishes) {
 
         this.table = table;
         this.waiter = waiter;

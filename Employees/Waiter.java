@@ -25,7 +25,7 @@ public class Waiter extends Employee {
 
     public Order takeOrder(Table table, List<Dish> chosenDishes) {
         table.assignWaiter(this);
-        Order newOrder = new Order(table, this, chosenDishes, 0.0);
+        Order newOrder = new Order(table, this, chosenDishes);
         return newOrder;
     }
 

@@ -14,22 +14,38 @@ public class DishCreator {
     private static final int CHICKEN_CALORIES = 1000;
 
     public static Dish createRiceWithSaira() {
-        return new Dish("Рис c сайрой", "Авторское блюдо от Алексея Крыгина",
-                RICE_PRICE, RICE_WEIGHT, Dish.DishType.MAIN, RICE_CALORIES);
+    Dish dish = new Dish("Рис c сайрой", "Авторское блюдо от Алексея Крыгина",
+        RICE_PRICE, RICE_WEIGHT, Dish.DishType.MAIN, RICE_CALORIES);
+    dish.addProduct(new Product("Рис"));
+    dish.addProduct(new Product("Сайра"));
+    dish.addProduct(new Product("Соль"));
+    return dish;
     }
 
     public static Dish createPastaWithSausages() {
-        return new Dish("Макароны c сосисками", "Авторское блюдо от Никиты Загибалова",
-                PASTA_PRICE, PASTA_WEIGHT, Dish.DishType.MAIN, PASTA_CALORIES);
+    Dish dish = new Dish("Макароны c сосисками", "Авторское блюдо от Никиты Загибалова",
+        PASTA_PRICE, PASTA_WEIGHT, Dish.DishType.MAIN, PASTA_CALORIES);
+    dish.addProduct(new Product("Макароны"));
+    dish.addProduct(new Product("Сосиски"));
+    dish.addProduct(new Product("Соль"));
+    return dish;
     }
 
     public static Dish createChickenInOwner() {
-        return new Dish("Курица в духовке", "Авторское блюдо от Анатолия Шаповалова",
-                CHICKEN_PRICE, CHICKEN_WEIGHT, Dish.DishType.MAIN, CHICKEN_CALORIES);
+    Dish dish = new Dish("Куринная грудка в духовке", "Авторское блюдо от Анатолия Шаповалова",
+        CHICKEN_PRICE, CHICKEN_WEIGHT, Dish.DishType.MAIN, CHICKEN_CALORIES);
+    dish.addProduct(new Product("Куринная грудка"));
+    dish.addProduct(new Product("Специи"));
+    dish.addProduct(new Product("Масло"));
+    return dish;
     }
 
     public static Dish createChicken() {
-        return new Dish("Курица", "Авторское блюдо от Анатолия Шаповалова",
-                CHICKEN_PRICE, CHICKEN_WEIGHT, Dish.DishType.MAIN, CHICKEN_CALORIES);
+    Dish dish = new Dish("Курица", "Авторское блюдо от Анатолия Шаповалова",
+        CHICKEN_PRICE, CHICKEN_WEIGHT, Dish.DishType.MAIN, CHICKEN_CALORIES);
+    dish.addProduct(new Product("Курица"));
+    dish.addProduct(new Product("Соль"));
+    dish.addProduct(new Product("Масло"));
+    return dish;
     }
 }
