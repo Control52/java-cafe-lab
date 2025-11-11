@@ -4,7 +4,6 @@ import Cafe.Dish;
 import Cafe.Menu;
 import Cafe.Order;
 import Cafe.Table;
-import Cafe.Client.AgeType;
 import Cafe.Product;
 import Employees.Chef;
 import Employees.Waiter;
@@ -21,7 +20,7 @@ class Main {
 
         Waiter waiter = new Waiter("Никита", 15.0, 40);
 
-        Client client = new Client(1000, AgeType.ADULT);
+        Client client = new Client(1000, Client.AgeType.ADULT);
         client.sitAtTable(table);
 
         Dish chosen = menu.getDishByName("Макароны c сосисками");
