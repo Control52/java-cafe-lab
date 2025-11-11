@@ -9,7 +9,7 @@ public class Dish implements Discountable {
         private String description;
         private double price;
         private int weight;
-        private List<Product> products = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
         private DishType type;
         private int caloricContent;
 
@@ -75,11 +75,21 @@ public class Dish implements Discountable {
         }
 
         public List<Product> getProducts() {
-            return products;
+            return new ArrayList<>(products);
         }
 
         public void setProducts(List<Product> products) {
-            this.products = products;
+            this.products = new ArrayList<>(products);
+        }
+
+        public void addProduct(Product product) {
+            if (product != null) {
+                products.add(product);
+            }
+        }
+
+        public void removeProduct(Product product) {
+            products.remove(product);
         }
 
         public int getCaloricContent() {
