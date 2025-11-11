@@ -40,12 +40,4 @@ public class DishCreator {
     return dish;
     }
 
-    public static Dish createChicken() {
-    Dish dish = new Dish("Курица", "Авторское блюдо от Анатолия Шаповалова",
-        CHICKEN_PRICE, CHICKEN_WEIGHT, Dish.DishType.MAIN, CHICKEN_CALORIES);
-    dish.addProduct(new Product("Курица"));
-    dish.addProduct(new Product("Соль"));
-    dish.addProduct(new Product("Масло"));
-    return dish;
-    }
 }
