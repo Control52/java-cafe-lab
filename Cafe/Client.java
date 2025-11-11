@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Client {
+   
     private int money;
     private AgeType type;
     private Table table;
@@ -12,6 +13,12 @@ public class Client {
     public enum AgeType {
         ADULT,
         CHILDREN
+    }
+
+    public Client(int money, AgeType type) {
+        this.money = money;
+        this.type = type;
+        this.table = null;
     }
 
     public void sitAtTable(Table table) {

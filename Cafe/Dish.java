@@ -50,53 +50,53 @@ public class Dish implements Discountable {
         return type;
     }
     
-        public void setTitle(String title) {
-            this.title = title;
-        }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-        public String getDescription() {
-            return description;
-        }
+    public String getDescription() {
+        return description;
+    }
 
-        public void setDescription(String description) {
-            this.description = description;
-        }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-        public void setPrice(double price) {
-            this.price = price;
-        }
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
-        public int getWeight() {
-            return weight;
-        }
+    public int getWeight() {
+        return weight;
+    }
 
-        public void setWeight(int weight) {
-            this.weight = weight;
-        }
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 
-        public List<Product> getProducts() {
-            return new ArrayList<>(products);
-        }
+    public List<Product> getProducts() {
+        return new ArrayList<>(products);
+    }
 
-        public void setProducts(List<Product> products) {
-            this.products = new ArrayList<>(products);
-        }
+    public void setProducts(List<Product> products) {
+        this.products = new ArrayList<>(products);
+    }
 
-        public void addProduct(Product product) {
-            if (product != null) {
-                products.add(product);
-            }
+    public void addProduct(Product product) {
+        if (product != null) {
+            products.add(product);
         }
+    }
 
-        public void removeProduct(Product product) {
-            products.remove(product);
-        }
+    public void removeProduct(Product product) {
+        products.remove(product);
+    }
 
-        public int getCaloricContent() {
-            return caloricContent;
-        }
+    public int getCaloricContent() {
+        return caloricContent;
+    }
 
-        public void setCaloricContent(int caloricContent) {
-            this.caloricContent = caloricContent;
-        }
+    public void setCaloricContent(int caloricContent) {
+        this.caloricContent = caloricContent;
+    }
 }

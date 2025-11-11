@@ -46,6 +46,21 @@ public class Order {
         return sum;
     }
 
+    public String getStatusRu() {
+        switch (status) {
+            case NEW:
+                return "Новый";
+            case PROCESSING:
+                return "В обработке";
+            case DONE:
+                return "Готов";
+            case SERVED:
+                return "Подается";
+            default:
+                return "Неизвестно";
+        }
+    }
+
      public List<Dish> getChosenDishes() {
         return new ArrayList<>(chosenDishes);
     }
